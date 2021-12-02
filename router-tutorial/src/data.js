@@ -1,3 +1,6 @@
+/**
+ * @type {Invoice[]}
+ */
 let invoices = [
   {
     name: "Santa Monica",
@@ -31,12 +34,26 @@ let invoices = [
   },
 ];
 
-// ...
-
 export function getInvoices() {
   return invoices;
 }
 
+/**
+ * @param {number} number
+ * @returns {Invoice}
+ */
 export function getInvoice(number) {
   return invoices.find((invoice) => invoice.number === number);
 }
+
+/**
+ * @param {number} number
+ * @returns {void}
+ */
+export function deleteInvoice(number) {
+  invoices = invoices.filter((invoice) => invoice.number !== number);
+}
+
+/**
+ * @typedef {{ name: string; number: number; amount: string; due: string }} Invoice
+ */
